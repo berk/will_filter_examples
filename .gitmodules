@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/will_filter"]
+	path = vendor/plugins/will_filter
+	url = git://github.com/berk/will_filter.git
