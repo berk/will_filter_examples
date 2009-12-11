@@ -1,5 +1,0 @@
-<%= render :partial => "header" %>
- 
-<div id="doc">
-  <%= @content_for_layout %>
-</div>	

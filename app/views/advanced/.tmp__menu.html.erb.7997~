@@ -1,5 +1,0 @@
-<div>
-    <%=link_to("Profiles", :action => :profiles) %>
-    | <%=link_to("Events", :action => :events) %>
-    | <%=link_to("Event Members", :action => :event_members) %>
-</div>
