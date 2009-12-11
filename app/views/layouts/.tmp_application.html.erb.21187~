@@ -1,0 +1,25 @@
+<html>
+	<head>
+	 <script type="text/javascript" src="/javascripts/prototype.js"></script>
+	 <style>
+	 	th {
+	 		text-align:left;
+	 	}
+	 </style>
+	
+	</head>
+	<body>
+		<center>
+		<div id="doc" style="width:700px;text-align:left;">
+			
+			<div id="facebook_menu">
+				<%=link_to("Profiles", :controller => :profiles)%> 
+				| <%=link_to("Events", :controller => :events)%>
+			</div>	
+			<br>
+			
+		  <%= @content_for_layout %>
+		</div>	
+		</center>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+body {
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.paginator {
+  width:100%; 
+  padding-bottom:10px; 
+}
+
+.results {
+  width:100%; 
+  padding:5px; 
+  margin:0px;
+  border-spacing: 0px; 
+  border: 1px solid #eee;
+}
+
+.results td {
+  padding:3px; 
+  margin:0px;
+  border-spacing: 0px; 
+}
+
+.results th {
+  padding:3px; 
+  margin:0px;
+  border-spacing: 0px; 
+  background-color: #efefef;
+}
+
+.row_odd {
+  background-color: #feffef;
+}
+
+.row_even {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,31 @@
+<h1>Events</h1>
+<%= render :partial=> "/model_filter/filter" %>
+<br>
+<div>
+  <table width='100%'>
+    <tr>
+      <td align='left'><%= will_paginate(@events) %></td>
+      <td align='right'><%= page_entries_info(@events) %></td>
+    </tr>
+  </table>
+  <table width='100%'>
+  <tbody>
+    <tr>
+      <th>Id</th>
+      <th>Creator</th>
+      <th>Name</th>
+      <th>Headline</th>
+      <th>Start Time</th>
+    </tr>
+    <% @events.each do |e| %>
+    <tr>
+      <td><%= e.id%></td>
+      <td><%= e.profile.name %></td>
+      <td><%= e.name %></td>
+      <td><%= e.headline %></td>
+      <td><%= e.start_time %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

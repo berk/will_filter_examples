@@ -1,0 +1,9 @@
+<%= render :partial => "layouts/header" %>
+
+<div id="facebook_menu">
+	Friends | Events 
+</div>	
+ 
+<div id="doc">
+  <%= @content_for_layout %>
+</div>	

@@ -1,0 +1,12 @@
+<table style="width:100%;">
+  <tr>
+    <td style="text-align:left;">
+      <%=link_to("Profiles", :action => :profiles) %>
+      | <%=link_to("Events", :action => :events) %>
+      | <%=link_to("Event Members", :action => :event_members) %>
+    </td>
+    <td style="text-align:right;">
+      <%=link_to("Advanced Filters", :controller => :advanced, :action => :profiles) %>
+    </td>
+  </tr>
+</table>

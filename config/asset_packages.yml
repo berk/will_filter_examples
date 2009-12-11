@@ -1,0 +1,13 @@
+--- 
+javascripts: 
+- base: 
+  - prototype
+  - effects
+  - controls
+  - dragdrop
+  - application
+  - will_filter
+stylesheets: 
+- base: 
+  - application
+  - will_filter
