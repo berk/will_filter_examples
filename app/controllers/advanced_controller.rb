@@ -1,8 +1,15 @@
 class AdvancedController < ApplicationController
 
-  def profiles
-    @model_filter = ProfileFilter.new(@own_profile).deserialize_from_params(params)
-    @profiles = Profile.paginate(:order=>@model_filter.order_clause, :page=>page, :per_page=>@model_filter.per_page, :conditions=>@model_filter.sql_conditions)
+  def users
+    @users = User.filter(:params => params, :filter => :user_filter)
+  end
+
+  def events
+    @events = Event.filter(:params => params, :filter => :event_filter)    
+  end
+
+  def event_members
+    @event_users = EventUser.filter(:params => params, :filter => :event_user_filter)    
   end
 
 end

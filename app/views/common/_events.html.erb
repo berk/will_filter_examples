@@ -1,0 +1,54 @@
+<%=will_filter(@events)%>
+
+<br>
+<table class='paginator'>
+    <tr>
+        <td align='left'>
+            <%= will_paginate(@events) %>
+        </td>
+        <td align='right'>
+            <%= page_entries_info(@events) %>
+        </td>
+    </tr>
+</table>
+<table class='results'>
+    <tbody>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Creator
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Headline
+            </th>
+            <th>
+                Start Time
+            </th>
+        </tr>
+        <% @events.each_with_index do |e, index| %>
+        <% row_class = (index % 2 == 0) ? "row_even" : "row_odd" %>
+        <tr class='<%=row_class%>'>
+            <td>
+                <%= e.id %>
+            </td>
+            <td>
+                <%= e.creator.name %>
+            </td>
+            <td>
+                <%= e.name %>
+            </td>
+            <td>
+                <%= e.headline %>
+            </td>
+            <td>
+                <%= e.start_time %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

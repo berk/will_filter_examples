@@ -1,7 +1,7 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
-      t.integer   :profile_id
+      t.integer   :creator_id
       t.string    :type
       t.string    :name
       t.string    :headline
@@ -10,6 +10,8 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :events, [:creator_id]
   end
 
   def self.down

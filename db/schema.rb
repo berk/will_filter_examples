@@ -9,17 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090418062225) do
+ActiveRecord::Schema.define(:version => 20090730070119) do
 
-  create_table "event_members", :force => true do |t|
+  create_table "event_users", :force => true do |t|
     t.integer  "event_id"
-    t.integer  "profile_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "event_users", ["event_id", "user_id"], :name => "index_event_users_on_event_id_and_user_id"
+  add_index "event_users", ["event_id"], :name => "index_event_users_on_event_id"
+  add_index "event_users", ["user_id"], :name => "index_event_users_on_user_id"
+
   create_table "events", :force => true do |t|
-    t.integer  "profile_id"
+    t.integer  "creator_id"
     t.string   "type"
     t.string   "name"
     t.string   "headline"
@@ -29,20 +33,9 @@ ActiveRecord::Schema.define(:version => 20090418062225) do
     t.datetime "updated_at"
   end
 
-  create_table "model_filters", :force => true do |t|
-    t.string   "type"
-    t.string   "model_class_name"
-    t.string   "name"
-    t.text     "data"
-    t.string   "identity_type"
-    t.integer  "identity_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "events", ["creator_id"], :name => "index_events_on_creator_id"
 
-  add_index "model_filters", ["identity_type", "identity_id"], :name => "index_model_filters_on_identity_type_and_identity_id"
-
-  create_table "profiles", :force => true do |t|
+  create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthday"
@@ -50,5 +43,17 @@ ActiveRecord::Schema.define(:version => 20090418062225) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "wf_filters", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.text     "data"
+    t.integer  "user_id"
+    t.string   "model_class_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wf_filters", ["user_id"], :name => "index_wf_filters_on_user_id"
 
 end

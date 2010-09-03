@@ -42,6 +42,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
 
 #  map.root :controller => "profiles"
-  map.connect '', :controller => 'simple', :action => 'profiles'
+  map.connect '', :controller => 'simple', :action => 'users'
   
 end

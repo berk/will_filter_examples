@@ -1,0 +1,61 @@
+= WillFilter
+
+will_filter is a Rails engine plugin that makes it easy to add administration tools to your site.
+ 
+If you ever had to build a page that displays a list of objects that can be filtered using 
+various criteria, this plugin can make your life easier. Adding a filtered page can now be 
+a matter of adding a line of code to your controller and creating a view to display your data.
+
+== Installation Instructions
+
+To install, configure and initialize will_filter engine, run the following commands: 
+
+  $ script/plugin install git://github.com/mislav/will_paginate.git
+
+  $ script/plugin install git://github.com/berk/will_filter.git
+  $ rake will_filter:sync  
+  $ rake db:migrate 
+
+  $ cd public; ln -s ../vendor/plugins/will_filter/public/wf wf
+
+== Examples
+
+Here is an example of how objects can be filtered in your controller:
+
+  class ProfileController < ApplicationController
+  
+    def index
+      @profiles = Profile.filter(:params => params)    
+    end
+    
+  end  
+
+Note: 'Profile' is a Rails ActiveRecord model 
+
+That's it. Now all you have to do is create a view for this action and add the following tag where you want your filter to be rendered:
+
+  <%= will_filter(@profiles) %>
+
+This will render a filter box with various conditions, operators and values for the model object you selected.
+
+Below are a couple of screenshot of what the filter looks like when it is rendered on a page:
+
+This is a simple profiles filter that filters users who are male and their first name starts with Steven
+
+http://www.theiceberk.com/projects/rails/will_filter/will_filter1.png
+
+This is a more complicated case where we are looking at a list of events that were created by users filtered using the preveous example.
+
+http://www.theiceberk.com/projects/rails/will_filter/will_filter3.png
+
+will_filter_examples project contains some samples that show you how to customize filters and much more
+
+  git://github.com/berk/will_filter_examples.git
+
+If you have any questions, comments or suggestions, email me at michael@geni.com
+
+
+== Authors and credits
+
+Authors::                Michael Berkovich
+

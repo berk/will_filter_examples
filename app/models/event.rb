@@ -1,14 +1,14 @@
 class Event < ActiveRecord::Base
-  belongs_to :profile
+  belongs_to :creator, :class_name => 'User', :foreign_key => :creator_id
+  has_many :events_users
   
   def self.random
-    self.find(:first, :offset => rand(self.count - 1))
+    find(:first, :offset => rand(count - 1))
   end
   
-  def self.generate_random_events(count = 1000)
-    0.upto(count) do 
-      next_id = Event.count
-      Event.create(:profile => Profile.random, :name => "Event #{next_id}", :headline => "Headline #{next_id}", :start_time => Time.now)      
+  def self.generate_random_data(count = 500)
+    0.upto(count) do |index|
+      create(:creator => User.random, :name => "Event #{index}", :headline => "Event Headline #{index}", :start_time => (Time.now + rand(100).hours))      
     end
   end
   

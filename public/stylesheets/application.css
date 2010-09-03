@@ -1,6 +1,7 @@
 body {
   font-size: 12px;
   font-family: Arial;
+	background-color: white;
 }
 
 .paginator {
@@ -43,4 +44,10 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+h1 {
+	font-size: 18px;
+	font-family: Arial;
+	border-bottom: 1px solid #ccc;
 }

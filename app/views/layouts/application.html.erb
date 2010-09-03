@@ -6,11 +6,12 @@
         <%= javascript_include_merged :base %>
         <%= stylesheet_link_merged :base, 'media' => nil %>
     </head>
-    <body>
+    <body style="margin:0px;">
+        <%= render(:partial => '/common/menu')%>
         <center>
-            <div style="width:800px;text-align:left;">
-                <%= @content_for_layout %>
-            </div>
+          <div style="width:900px;text-align:left;">
+              <%= @content_for_layout %>
+          </div>
         </center>
     </body>
 </html>

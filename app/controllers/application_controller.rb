@@ -3,19 +3,9 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-#  protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
   
-  before_filter :init_own_profile
-  
-  def init_own_profile
-    @own_profile = Profile.find(7531)
-  end
-  
-  def page
-    params[:page]
+  def current_user
+    @current_user ||= User.new
   end
   
 end
