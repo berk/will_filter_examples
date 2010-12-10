@@ -1,6 +1,6 @@
 = Welcome to will_filter Examples Application
 
-will_filter is a Rails Engine Plugin for filtering active_record model objects. It is used by a dozens of projects, including the Tr8n translation engine. 
+will_filter is a Rails Engine Plugin for filtering ActiveRecord model objects. It is used by a dozens of projects, including the Tr8n translation engine. 
 
 = Installation Instructions
 
