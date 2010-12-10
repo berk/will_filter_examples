@@ -1,0 +1,23 @@
+= Welcome to will_filter Examples Application
+
+will_filter is a Rails Engine Plugin for filtering active_record model objects. It is used by a dozens of projects, including the Tr8n translation engine. 
+
+= Installation Instructions
+
+To run will_filter examples, execute the following commands:
+
+  $ git clone git://github.com/berk/will_filter_examples.git
+  $ cd will_filter_examples
+  $ rake db:migrate
+  $ rake samples:init
+  $ script/server
+
+The above commands will create a development sqlite3 database in the db folder of will_filter_examples, init the database and run the local web server. Now you can open your browser and point to:
+
+  http://localhost:3000
+
+Congratulations! You are now running will_filter Examples Application!
+
+Live will_filter sample application is running here:
+
+http://wf.tr8n.org 
