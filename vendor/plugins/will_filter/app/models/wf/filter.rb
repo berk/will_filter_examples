@@ -112,10 +112,22 @@ class Wf::Filter < ActiveRecord::Base
     []
   end
   
+  def model_columns
+    model_class.columns
+  end
+
+  def model_column_keys
+    model_columns.collect{|col| col.name.to_sym}
+  end
+  
+  def contains_column?(key)
+    model_column_keys.index(key) != nil
+  end
+  
   def definition
     @definition ||= begin
       defs = {}
-      model_class.columns.each do |col|
+      model_columns.each do |col|
         defs[col.name.to_sym] = default_condition_definition_for(col.name, col.sql_type)
       end
       
@@ -186,6 +198,10 @@ class Wf::Filter < ActiveRecord::Base
 
   def order_clause
     "#{order} #{order_type}"
+  end
+
+  def column_sorted?(key)
+    key.to_s == order
   end
 
   def default_per_page
@@ -337,7 +353,7 @@ class Wf::Filter < ActiveRecord::Base
   #############################################################################
   # Serialization 
   #############################################################################
-  def serialize_to_params
+  def serialize_to_params(merge_params = {})
     params = {}
     params[:wf_type]        = self.class.name
     params[:wf_match]       = match
@@ -350,7 +366,8 @@ class Wf::Filter < ActiveRecord::Base
       condition = condition_at(index)
       condition.serialize_to_params(params, index)
     end
-    params
+    
+    params.merge(merge_params)
   end
   
   #############################################################################
@@ -661,6 +678,11 @@ class Wf::Filter < ActiveRecord::Base
       recs.wf_filter = self
       recs
     end
+  end
+  
+  # sums up the column for the given conditions
+  def sum(column_name)
+    model_class.sum(column_name, :conditions => sql_conditions)
   end
   
 end

@@ -23,7 +23,7 @@
 
 class Wf::FilterContainer
 
-  attr_accessor :filter, :condition, :operator, :values
+  attr_accessor :filter, :condition, :operator, :values, :index
 
   def initialize(filter, condition, operator, values)
     @filter         = filter
@@ -36,6 +36,17 @@ class Wf::FilterContainer
     values.first
   end
 
+  def sanitized_value(index = 0)
+    return '' if index >= values.size 
+    return '' if values[index].blank?
+    values[index].to_s.gsub("'", "&#39;")
+  end
+
+  # used by the list based containers
+  def options
+    []
+  end
+
   def validate
     return "Value must be provided" if value.blank?
   end
@@ -43,59 +54,14 @@ class Wf::FilterContainer
   def reset_values
     @values = []
   end
-
-  def html_input_id(i, j = 0)
-    "wf_v#{i}_#{j}"
-  end
   
-  def html_input_name(i, j = 0)
-    html_input_id(i, j)
-  end
-
-  def html_input_name_and_id(i, j = 0)
-    "name='#{html_input_name(i, j)}' id='#{html_input_id(i, j)}''"
-  end
-
-  def html_input_value(v = value)
-    return "value=''" if v.blank?
-    return "value='#{v.to_s}'" unless v.is_a?(String)
-    
-    "value='#{v.gsub("'", "&#39;")}'"
-  end
-
-  def html_mark_dirty
-    "onChange='wfFilter.fieldChanged(this)'"
-  end
-
-  def html_input_attributes(i, j = 0, v = nil)
-    if v.nil?
-      "class='wf_input' name=#{html_input_name(i, j)} id=#{html_input_id(i, j)} #{html_mark_dirty} #{html_input_value(values[j])}"
-    else
-      "class='wf_input' name=#{html_input_name(i, j)} id=#{html_input_id(i, j)} #{html_mark_dirty} #{html_input_value(v)}"
-    end
-  end
-
-  def html_date_selector(index, value_index = 0)  
-    html = "<a href=\"#\" onclick=\"wfCalendar.selectDate('#{html_input_id(index, value_index)}', this); return false;\">"
-    html << "<img align=\"top\" alt=\"select date\" border=\"0\" class=\"wf_calendar_trigger\" src=\"/wf/images/calendar.png\" />"
-    html << "</a>"
-  end 
-
-  def html_time_selector(index, value_index = 0)  
-    html = "<a href=\"#\" onclick=\"wfCalendar.selectDateTime('#{html_input_id(index, value_index)}', this); return false;\">"
-    html << "<img align=\"top\" alt=\"select date\" border=\"0\" class=\"wf_calendar_trigger\" src=\"/wf/images/calendar.png\" />"
-    html << "</a>"
-  end 
-  
-  def render_html(index)
-    html = "<table class='wf_values_table' cellspacing='0px' cellpadding='0px'><tr>"
-    html << "<td width='99%'><input type='text' style='width:99%;' #{html_input_attributes(index)}>"
-    html << "</td></tr></table>"
+  def template_name
+    self.class.name.underscore.split('/').last
   end
   
   def serialize_to_params(params, index)
     values.each_with_index do |v, v_index|
-      params[html_input_id(index, v_index)] = v
+      params["wf_v#{index}_#{v_index}"] = v
     end
   end
 
