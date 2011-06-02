@@ -1,12 +1,12 @@
 = Welcome to will_filter Examples Application
 
-will_filter is a Rails Engine Plugin for filtering ActiveRecord model objects. It is used by a dozens of projects, including the Tr8n translation engine. 
+will_filter is a Rails Engine Plugin for filtering ActiveRecord model objects. It is used by a dozen of projects, including Tr8n translation engine. 
 
 = Installation Instructions
 
 To run will_filter examples, execute the following commands:
 
-  $ git clone git://github.com/berk/will_filter_examples.git
+  $ git clone git://github.com/berk/will_filter_examples.git -b rails3
   $ cd will_filter_examples
   $ bundle install
   $ rake db:migrate
