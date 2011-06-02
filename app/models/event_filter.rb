@@ -1,4 +1,4 @@
-class EventFilter < Wf::Filter
+class EventFilter < WillFilter::Filter
 
   def definition
     defs = super  

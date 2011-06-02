@@ -1,4 +1,4 @@
-class UserFilter < Wf::Filter
+class UserFilter < WillFilter::Filter
 
   def definition
     defs = super  

@@ -8,15 +8,23 @@ To run will_filter examples, execute the following commands:
 
   $ git clone git://github.com/berk/will_filter_examples.git
   $ cd will_filter_examples
+  $ bundle install
   $ rake db:migrate
   $ rake samples:init
-  $ script/server
+  $ rails server
 
 The above commands will create a development sqlite3 database in the db folder of will_filter_examples, init the database and run the local web server. Now you can open your browser and point to:
 
   http://localhost:3000
 
 Congratulations! You are now running will_filter Examples Application!
+
+Below are a couple of screenshot of what the filter looks like when it is rendered on a page:
+
+http://wiki.tr8n.org/images/d/da/Will_filter_1.png
+
+http://wiki.tr8n.org/images/e/ec/Will_filter_2.png
+
 
 Live will_filter sample application is running here:
 

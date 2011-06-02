@@ -6,13 +6,13 @@
 # You can overload any feature for any environment by changing the 
 # environment settings at the bottom of the file. 
 #
-# Alternatively, you can overload any of the methods of Wf::Config
+# Alternatively, you can overload any of the methods of WillFilter::Config
 #############################################################################
 
 defaults: &defaults
   effects_options:
     enabled:              false
-    script_path:          "/wf/javascripts/will_filter_prototype_effects.js"
+    script_path:          "/will_filter/javascripts/will_filter_prototype_effects.js"
     
   save_options: 
     enabled:              true
@@ -22,23 +22,23 @@ defaults: &defaults
 
   export_options:         
     enabled:              true
-    default_formats:      [table, csv, xml, json]
+    default_formats:      [html, csv, xml, json]
   
   containers:             # container implementation mapping
-    nil:                  Wf::Containers::Nil
-    numeric:              Wf::Containers::Numeric
-    numeric_range:        Wf::Containers::NumericRange
-    numeric_delimited:    Wf::Containers::NumericDelimited
-    date_time_range:      Wf::Containers::DateTimeRange
-    single_date:          Wf::Containers::SingleDate
-    date:                 Wf::Containers::Date
-    date_time:            Wf::Containers::DateTime
-    date_range:           Wf::Containers::DateRange
-    text:                 Wf::Containers::Text
-    text_delimited:       Wf::Containers::TextDelimited
-    boolean:              Wf::Containers::Boolean
-    list:                 Wf::Containers::List
-    filter_list:          Wf::Containers::FilterList
+    nil:                  WillFilter::Containers::Nil
+    numeric:              WillFilter::Containers::Numeric
+    numeric_range:        WillFilter::Containers::NumericRange
+    numeric_delimited:    WillFilter::Containers::NumericDelimited
+    date_time_range:      WillFilter::Containers::DateTimeRange
+    single_date:          WillFilter::Containers::SingleDate
+    date:                 WillFilter::Containers::Date
+    date_time:            WillFilter::Containers::DateTime
+    date_range:           WillFilter::Containers::DateRange
+    text:                 WillFilter::Containers::Text
+    text_delimited:       WillFilter::Containers::TextDelimited
+    boolean:              WillFilter::Containers::Boolean
+    list:                 WillFilter::Containers::List
+    filter_list:          WillFilter::Containers::FilterList
     
   data_types:             # mapping between data types and containers   
     bigint:               [nil, numeric, numeric_range, numeric_delimited]
