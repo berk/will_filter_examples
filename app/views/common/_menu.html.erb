@@ -6,6 +6,9 @@
 		        <%=link_to("Users", :action => :users) %>
 		      | <%=link_to("Events", :action => :events) %>
 		      | <%=link_to("Event Members", :action => :event_members) %>
+          <% unless @controller.controller_name == 'simple' %>
+           | <%=link_to("Users with Actions", :action => :users_with_actions) %>
+					<% end %>
 		    </td>
 		    <td style="text-align:right;">
 				  <% if @controller.controller_name == 'simple' %>

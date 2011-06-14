@@ -4,6 +4,10 @@ class AdvancedController < ApplicationController
     @users = User.filter(:params => params, :filter => :user_filter)
   end
 
+  def users_with_actions
+    @users = User.filter(:params => params, :filter => :user_filter)
+  end
+
   def events
     @events = Event.filter(:params => params, :filter => :event_filter)    
   end
