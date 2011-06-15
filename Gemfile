@@ -6,7 +6,7 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'will_paginate', "~> 3.0.pre2"
-gem 'will_filter', "1.0.1" 
+gem 'will_filter'
 # gem 'will_filter', :path => '../will_filter'
 
 gem 'sqlite3'

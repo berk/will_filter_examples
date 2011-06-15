@@ -64,8 +64,8 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
-    will_filter (1.0.1)
-      rails (= 3.0.7)
+    will_filter (3.0.0)
+      rails (~> 3.0.0)
       will_paginate (~> 3.0.pre2)
     will_paginate (3.0.pre2)
 
@@ -75,5 +75,5 @@ PLATFORMS
 DEPENDENCIES
   rails (= 3.0.7)
   sqlite3
-  will_filter (= 1.0.1)
+  will_filter
   will_paginate (~> 3.0.pre2)
